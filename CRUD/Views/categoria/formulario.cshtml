@@ -1,0 +1,57 @@
+﻿@model Entidades.becategoria
+@using Entidades
+@{
+   becategoria categoria = ViewBag.categoria as becategoria;
+ }
+
+<h2 style="margin-top:0" > Formulario </h2>
+@using (Html.BeginForm("opguardar", "categoria", FormMethod.Post))
+{
+    if(categoria != null)
+    {        
+        @Html.HiddenFor(x => x.idcategoria, new { value = categoria.idcategoria })
+        <table>
+            <tr>
+                <td>@Html.LabelFor(x => x.codigo)</td>
+                <td>@Html.TextBox("codigo" ,@categoria.codigo) </td>
+                @*<td>@Html.TextBoxfor(x => x.codigo, new {value = categoria.codigo})</td>*@
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.descripcion)</td>
+                <td>@Html.TextBox("descripcion", @categoria.descripcion) </td>
+                @*@Html.TextBoxFor(x => x.descripcion, new { value = categoria.descripcion })*@
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.estado)</td>
+                <td>@Html.CheckBox("estado", @categoria.estado) </td>
+                @*@Html.CheckBoxFor(x => x.estado, new { Checked = categoria.estado })*@
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Guardar"/></td>
+            </tr>
+        </table>
+    }
+    else
+    {
+        @Html.HiddenFor(x => x.idcategoria)
+        <table>
+            <tr>
+                <td>@Html.LabelFor(x => x.codigo)</td>
+                <td>@Html.TextBoxFor(x => x.codigo)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.descripcion)</td>
+                <td>@Html.TextBoxFor(x => x.descripcion)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(x => x.estado)</td>
+                <td>@Html.CheckBoxFor(x => x.estado, new { Checked = true })</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Guardar"></td>
+            </tr>
+        </table>
+    }
+}
+
+

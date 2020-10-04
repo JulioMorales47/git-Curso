@@ -1,0 +1,60 @@
+﻿@using Entidades
+
+@{ 
+    Int32 paginacount = ViewBag.listadocategoriapaginacioncount;
+    Int32 paginaactual = ViewBag.nropagina;
+    List<becategoria> listado = ViewBag.listadocategoriapaginacion as List<becategoria>;
+}
+
+<script>
+    function fnpaginar(elemento)
+    {
+        //alert(elemento.value)
+        document.forms["frmpaginador"].submit();
+    }
+</script>
+
+@using (Html.BeginForm("paginar","categoria",FormMethod.Get,new {id="frmpaginador"}))
+{
+    <label>Viendo </label> 
+    <select onchange="fnpaginar(this)" name="nropagina">
+        @for (int i = 1; i <= paginacount; i++)
+        {
+            if (paginaactual == @i)
+            {
+                <option value="@i" selected>@i</option>
+            }
+            else
+            {
+                <option value="@i">@i</option>
+            }
+        }        
+    </select>
+    <label>de @paginacount </label>
+}
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CODIGO</th>
+            <th>DESCRIPCION</th>
+            <th>ESTADO</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (becategoria obj in listado)
+        {
+            <tr>
+                <td>@obj.idcategoria</td>
+                <td>@obj.codigo</td>
+                <td>@obj.descripcion</td>
+                <td>@(obj.estado ? "ACTIVO" : "INACTIVO")</td>
+                <td>@Html.ActionLink("Editar", "getcategoria", "categoria", new { idcategoria = obj.idcategoria }, null) 
+                    @Html.ActionLink("Eliminar", "eliminar", "categoria", new { idcategoria = obj.idcategoria }, null) 
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
