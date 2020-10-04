@@ -1,0 +1,9 @@
+D:\proyectomvc\CRUD\Datos\bin\Debug\Datos.dll
+D:\proyectomvc\CRUD\Datos\bin\Debug\Datos.pdb
+D:\proyectomvc\CRUD\Datos\bin\Debug\Entidades.dll
+D:\proyectomvc\CRUD\Datos\bin\Debug\Entidades.pdb
+D:\proyectomvc\CRUD\Datos\obj\Debug\Datos.dll
+D:\proyectomvc\CRUD\Datos\obj\Debug\Datos.pdb
+D:\proyectomvc\CRUD\Datos\obj\Debug\Datos.csprojAssemblyReference.cache
+D:\proyectomvc\CRUD\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+D:\proyectomvc\CRUD\Datos\obj\Debug\Datos.csproj.CopyComplete
